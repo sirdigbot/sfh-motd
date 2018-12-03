@@ -1,0 +1,299 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+  <!-- RANDOMISER SCRIPT -->
+  <script>
+    var textArray = [
+    
+      <!-- textArray[X][0] is the display text, textArray[x][1] is the title attribute/tooltip -->
+      ["Welcome to the House of Fun",                                     "We have nothing to offer but our valueless love"],
+      ["Unfortunate Host of FurryConX 2020",                              "Formerly Host of Furry Battle Royale 2019"],
+      ["This random slogan idea is from Futurama, not Minecraft",         "Or maybe it's from XKCD, who knows"],
+      ["satan haker",                                                     "he is he stole my diamonds once"],
+      ["Now with 10% more players--Wait never mind..",                    "I accidentally counted a bot twice"],
+      ["Accepting donations in rare DogeCoins",                           "None of that common trash"],
+      ["I once ate a paper aeroplane",                                    "What's the deal with airline food?"],
+      ["Thanks for Playing!",                                             "No really, we appreciate you at least a little"],
+      ["Proudly Sponsored by EA™",                                        "Legally I'm required to disclose that EA only sponsor our monthly ballet tournament"],
+      ["Map Cycle: Hightower Rainy, Hightower Rainy and Hightower Rainy", "Then everyone leaves after 30 minutes"],
+      ["Glory to the Hypnotoad",                                          "Glory to the hidden tooltip"],
+      ["Please put on your 4D Goggles",                                   "Keep your hands and shoes inside the vehicle at least 60% of the time"],
+      ["Dated Memes and Drama Queens",                                    "The true final Satan's Fun House slogan begins--er, exists?"],
+      ["More full-time employees than TF2 itself",                        "A whole 1 of them during peak hours"],
+      ["We must save my family!",                                         "- Gary"],
+      ["Hey, at least I pretend to be nice to people!",                   "Yeah, whatev... wait, pretend?"],
+      ["owo",                                                             "*Notices of eviction*"],
+      ["Scratch here to reveal prize",                                    "If you can read this you scratched too hard"],
+      ["Now with totally legitimate and safe candy",                      "My dealer assured me these were the freshest mints"],
+      ["Fun for the whole family",                                        "Or at least families that like to share the computer NCIS style"],
+      ["fuck you kevin stop showing evryone my fuckin deviantart",        "- blood_skull_boi84"],
+      ["we are very sorry in general",                                    "truly, mostly"],
+      ["Now apple flavoured",                                             "To nobody's benefit, soon to be replaced with lime"],
+      ["Featuring interactivity",                                         "And inner activities."],
+      ["We probably have some lime skittles somewhere around here",       "Get it? Because nobody likes the apple ones? im sorry im not a writer"],
+      ["Voted 5th Best Fun House Server in Venezuela",                    "Honestly, I expected less fanfare but the Venezuelans know how to celebrate"],
+      ["Sorry, we're open",                                               "Business Hours: Yes"],
+      ["More bugs than my childhood dinners",                             "Such is the life of an anteater.."],
+      ["Bathrooms are closed for routine maintenance",                    "We're sorry for the incontinence"],
+      ["Ignore the mosquitoes",                                           "They just do that sometimes"],
+      ["This is the Apples' Smiley ° ͜ °",                                "Copyright (C) Nintendo 1845-1847"],
+      ["yo why my toes smell like feet",                                  "what"],
+      ["Now with 25 less annual deaths",                                  "When compared with other similar brands"],
+      ["No Fun Allowed",                                                  "Your punishment will be joy."],
+      ["Home of the Best 2 Minute Noodles",                               "They're mostly dried grass with soy sauce"]
+    ];
+
+    var logoArray = [
+      "sfh_logo.svg"
+    ];
+
+    function randomise(logoOverride = -1, textOverride = -1)
+    {
+      var logoIdx = (logoOverride > -1 ? logoOverride : Math.floor(Math.random()*logoArray.length)); // 0 to length-1
+      var textIdx = (textOverride > -1 ? textOverride : Math.floor(Math.random()*textArray.length));
+      
+      console.log("LogoIdx: " + logoIdx + " (" + logoArray[logoIdx] + ")");
+      console.log("TextIdx: " + textIdx + " (" + textArray[textIdx][0] + " | " + textArray[textIdx][1] + ")");
+      
+      document.getElementById("logo").src               = logoArray[logoIdx];
+      document.getElementById("specialtext").innerHTML  = textArray[textIdx][0];
+      document.getElementById("specialtext").title      = textArray[textIdx][1]; // tooltip attribute
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      randomise();
+    });
+  </script>
+  
+  
+  <!-- STYLE SHEET -->
+  <style type="text/css">
+    * {
+      box-sizing:border-box
+    }
+    
+    body {
+      margin: 0;
+      font-size: 12px;
+      background: #2E2B2B; /* Red variant of #2B2B2B */
+    }
+    
+    header {
+      background: radial-gradient(circle, #353535, #151515);
+      text-align: center;
+    }
+    
+    #logo {
+      margin: auto;
+      height: 200px;
+    }
+    
+    .logo-ct {
+      width: 100%;
+      padding: 4em 0 0 0;
+      text-align: center;
+    }
+    
+    
+    @keyframes specialtextglow {
+      0% {color: #990000;}
+      20% {color: #990000;}
+      50% {color: #DD685F;}
+      85% {color: #990000;}
+      100% {color: #990000;}
+    }
+
+    
+    #specialtext {
+      font-size: 1.5em;
+      margin: 0;
+      padding: 2em 0 0.75em 0;
+      font-family: 'Aldrich', sans-serif;
+      font-weight: 400;
+      animation-name: specialtextglow;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+    }
+    
+    .bar {
+      height: 8px;
+      width: 100%;
+      background: linear-gradient(#bf5757 10%, #720000 40%);
+    }
+    
+    .text-ct {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .welcometext {
+      margin: 1.25em auto 0.5em auto;
+      font-size: 3em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: #FFD700;
+    }
+    
+    .mainheader {
+      margin: 2em auto 0.5em auto;
+      font-size: 1.75em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: #E09A38;
+    }
+    
+    .maintext {
+      margin: 0;
+      font-size: 1.5em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      color: #EEEEEE;
+    }
+
+    .cmdlist {
+      margin: auto;
+      text-align: left;
+    }
+    
+    .cmdlist th {
+      text-align: center;
+    }
+    
+    .cmdlist tr > td:first-child { /* First td in tr is command */
+      font-size: 1em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      color: #3A9CC3;
+      line-height: 1.25em;
+    }
+    
+    .cmdlist tr > td:first-child:hover {
+      color: #A6D9D9;
+    }
+    
+    .cmdlist td {
+      font-size: 1em;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      color: #EEEEEE;
+      line-height: 1.25em;
+    }
+    
+    .cmdlist td:nth-child(2):hover {
+      color: #ababab;
+    }
+    
+    .fadeline {
+      width: 100%;
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.75) 33%, rgba(238, 238, 238, 0.75) 66%, rgba(238, 238, 238, 0));
+    }
+    
+    @keyframes smileWobble { /* Thanks /r/lgbt */
+      0% {transform:rotate(0deg)}
+      33% {transform:rotate(20deg)}
+      66% {transform:rotate(-20deg)}
+      100% {transform:rotate(360deg)}
+    }
+    
+    .smilespin {
+      margin: 0;
+      display: inline-block;
+    }
+    
+    .smilespin:hover {
+      animation-name: smileWobble;
+      animation-duration: 1s;
+    }
+    
+    @media only screen and (max-height: 768px) {
+      #logo {
+        height: 150px;
+      }
+      
+      #specialtext {
+        font-size: 1.25em;
+      }
+      
+      .bar {
+        height: 6px;
+      }
+    
+      .welcometext {
+        margin: 0.5em auto;
+        font-size: 2em;
+      }
+      
+      .maintext {
+        font-size: 1.25em;
+      }
+      
+      .mainheader {
+        margin: 0.875em auto 0.5em auto;
+        font-size: 1.5em;
+      }
+      
+      .cmdlist {
+        font-size: 1em;
+      }
+    }
+    
+    @media only screen and (max-height: 540px) {
+      #logo {
+        height: 100px;
+      }
+      
+      #specialtext {
+        font-size: 1em;
+      }
+    
+      .welcometext {
+        font-size: 1.5em;
+      }
+      
+      .maintext {
+        font-size: 1em;
+      }
+      
+      .mainheader {
+        margin: 0.5em auto 0.25em auto;
+      }
+      
+      .cmdlist {
+        font-size: 0.75em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+  <div class="logo-ct">
+    <!-- Image source is overwritten by script -->
+    <img id="logo" src="sfh_logo.svg" onerror="this.src='sfh_logo_fallback.png'" alt="Satan's Fun House" title="
+.__(.)< (MEOW)
+ \___)
+~~~~~~~">
+ <!-- Duck above is formatted for tooltip text (title attribute) -->
+  </div>
+  <h2 id="specialtext" title=""></h2>
+  </header>
+  <div class="bar">
+  </div>
+  <div class="text-ct">
+    <h1 class="welcometext">Welcome to Satan's Fun House!</h1>
+    <p class="maintext">We currently have KOTH, Control Points, Payload and Payload Race.<br/>Multi-Mode is still in development.<span style="font-size: 0.4em;vertical-align: super">sorry</span></p>
+    <table class="cmdlist">
+      <th colspan="2"><h2 class="mainheader">Some Useful Commands<hr class="fadeline"/></h2></th>
+      <tr><td>/rules</td><td>- See server rules</td></tr>
+      <tr><td>/help</td><td>- Commands and info about the server</td></tr>
+      <tr><td>/votegrapple</td><td>- Vote to toggle Grappling Hooks</td></tr>
+      <tr><td>/votebhoplimit</td><td>- Vote to toggle the BHop Speed Limit</td></tr>
+      <tr><td>/namecolour</td><td>- Make your name look as pretty as you <span class="smilespin">:D</span></td></tr>
+    </table>
+  </div>
+</body>
+</html>
