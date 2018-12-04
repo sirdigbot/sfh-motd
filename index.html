@@ -41,7 +41,7 @@
       ["Ignore the mosquitoes",                                           "They just do that sometimes"],
       ["This is the Apples' Smiley ° ͜ °",                                "Copyright (C) Nintendo 1845-1847"],
       ["yo why my toes smell like feet",                                  "what"],
-      ["Now with 25 less annual deaths",                                  "When compared with other similar brands"],
+      ["Now with 25 fewer annual deaths",                                 "When compared with other similar brands"],
       ["No Fun Allowed",                                                  "Your punishment will be joy."],
       ["Home of the Best 2 Minute Noodles",                               "They're mostly dried grass with soy sauce"]
     ];
@@ -62,7 +62,7 @@
       document.getElementById("specialtext").innerHTML  = textArray[textIdx][0];
       document.getElementById("specialtext").title      = textArray[textIdx][1]; // tooltip attribute
     }
-    
+
     document.addEventListener("DOMContentLoaded", function() {
       randomise();
     });
@@ -85,7 +85,7 @@
       background: radial-gradient(circle, #353535, #151515);
       text-align: center;
     }
-    
+
     #logo {
       margin: auto;
       height: 200px;
@@ -108,6 +108,7 @@
 
     
     #specialtext {
+      color: #990000;
       font-size: 1.5em;
       margin: 0;
       padding: 2em 0 0.75em 0;
@@ -116,6 +117,7 @@
       animation-name: specialtextglow;
       animation-duration: 2s;
       animation-iteration-count: infinite;
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
     }
     
     .bar {
@@ -135,7 +137,23 @@
       font-family: 'Open Sans', sans-serif;
       font-weight: 600;
       color: #FFD700;
+    }  
+      
+    @keyframes welcomeBounce {
+      0% {transform: translateY(0);}
+      5% {transform: translateY(-5px);}
+      15% {transform: translateY(0);}
+      100% {transform: translateY(0);}
     }
+    
+    .wt1 {display: inline-block; animation: welcomeBounce 4s infinite 1.1s;}
+    .wt2 {display: inline-block; animation: welcomeBounce 4s infinite 1.2s;}
+    .wt3 {display: inline-block; animation: welcomeBounce 4s infinite 1.3s;}
+    .wt4 {display: inline-block; animation: welcomeBounce 4s infinite 1.4s;}
+    .wt5 {display: inline-block; animation: welcomeBounce 4s infinite 1.5s;}
+    .wt6 {display: inline-block; animation: welcomeBounce 4s infinite 1.6s;}
+    .wt7 {display: inline-block; animation: welcomeBounce 4s infinite 1.7s;}
+    .wt8 {display: inline-block; animation: welcomeBounce 4s infinite 1.8s;}
     
     .mainheader {
       margin: 2em auto 0.5em auto;
@@ -194,10 +212,15 @@
     }
     
     @keyframes smileWobble { /* Thanks /r/lgbt */
-      0% {transform:rotate(0deg)}
-      33% {transform:rotate(20deg)}
-      66% {transform:rotate(-20deg)}
-      100% {transform:rotate(360deg)}
+      0% {transform: rotate(0deg); color: #E7411A;}
+      13% {color: #E78E1A;}
+      25% {color: #F8ED37;}
+      33% {transform: rotate(20deg);}
+      38% {color: #46D215;}
+      63% {color: #6988DE;}
+      66% {transform: rotate(-20deg);}
+      88% {color: #7F69DE;}
+      100% {transform: rotate(360deg); color: #C769DE;}
     }
     
     .smilespin {
@@ -273,8 +296,7 @@
   <header>
   <div class="logo-ct">
     <!-- Image source is overwritten by script -->
-    <img id="logo" src="sfh_logo.svg" onerror="this.src='sfh_logo_fallback.png'" alt="Satan's Fun House" title="
-.__(.)< (MEOW)
+    <img id="logo" src="sfh_logo.svg" onerror="this.src='sfh_logo_fallback.png'" alt="Satan's Fun House" title=".__(.)< (MEOW)
  \___)
 ~~~~~~~">
  <!-- Duck above is formatted for tooltip text (title attribute) -->
@@ -284,7 +306,7 @@
   <div class="bar">
   </div>
   <div class="text-ct">
-    <h1 class="welcometext">Welcome to Satan's Fun House!</h1>
+    <h1 class="welcometext">Welcome to Satan's <span class="wt1">F</span><span class="wt2">u</span><span class="wt3">n</span> <span class="wt4">H</span><span class="wt5">o</span><span class="wt6">u</span><span class="wt7">s</span><span class="wt8">e</span>!</h1>
     <p class="maintext">We currently have KOTH, Control Points, Payload and Payload Race.<br/>Multi-Mode is still in development.<span style="font-size: 0.4em;vertical-align: super">sorry</span></p>
     <table class="cmdlist">
       <th colspan="2"><h2 class="mainheader">Some Useful Commands<hr class="fadeline"/></h2></th>
