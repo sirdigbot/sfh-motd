@@ -32,7 +32,7 @@
       ["fuck you kevin stop showing evryone my fuckin deviantart",        "- blood_skull_boi84"],
       ["we are very sorry in general",                                    "truly, mostly"],
       ["Now apple flavoured",                                             "To nobody's benefit, soon to be replaced with lime"],
-      ["Featuring interactivity",                                         "And inner activities."],
+      ["Featuring interactivity",                                         "If you hold your monitor up at the right angle you can even feel your arms getting sore"],
       ["We probably have some lime skittles somewhere around here",       "Get it? Because nobody likes the apple ones? im sorry im not a writer"],
       ["Voted 5th Best Fun House Server in Venezuela",                    "Honestly, I expected less fanfare but the Venezuelans know how to celebrate"],
       ["Sorry, we're open",                                               "Business Hours: Yes"],
@@ -43,11 +43,28 @@
       ["yo why my toes smell like feet",                                  "what"],
       ["Now with 25 fewer annual deaths",                                 "When compared with other similar brands"],
       ["No Fun Allowed",                                                  "Your punishment will be joy."],
-      ["Home of the Best 2 Minute Noodles",                               "They're mostly dried grass with soy sauce"]
+      ["Home of the Best 2 Minute Noodles",                               "They're mostly dried grass with soy sauce"],
+      ["Up to 60% off unselected products!",                              "Hurry, sale ends yesterday"],
+      ["Try our infamous duck meat",                                      "At least I'm assured it's meat"],
+      ["Made from local and imported ingredients",                        "Expecting a joke about salt content, were ya?"],
+      ["Welcome to our 4th Grand Opening",                                "Sadly this isn't a joke, just outdated"],
+      ["Our cakes are guaranteed to be 40% egg or your money back",       "The hardboiled egg emanates a feeling of pity towards you"],
+      ["Generic Text Here",                                               "Bad XKCD-style joke here"],
+      ["Compliant with some electrical standards!",                       "At least a few, by my count"],
+      ["Tickets go on sale July 5th",                                     "Sometime soon we'll figure out what they're for"],
+      ["If you're here for the massage parlor they're next door",         "The kid-friendly one is down the street next to the crack alley"],
+      ["Fake Armor Trimming Grievance Counseling",                        "Just trade us the $10k first"],
+      ["87% Organic*",                                                    "As long as bullshit counts as organic"],
+      ["Due to cutbacks, the play has been canceled",                     "We'll be returning next year with our rendition of Lion King 3: Haha, I'm not really dead simba you idiot"],
+      ["15% taller than last year!",                                      "Makes you wonder where I get all these inches from"],
+      ["Speed Dating Classes: 8:00pm-8:01pm",                             "Latecomers will be denied entry, and then invited to help clean up"],
+      ["\"LASERS. CAUTION. LASERS. CAUTION. LASERS.\" What could it mean?", "When's episode 40 coming out, Ross?"],
+      ["<span class=\"rainbowtext\">Hey look an easter egg</span>",       "look at it go"]
+      <!-- I think that's enough for now -->
     ];
 
     var logoArray = [
-      "sfh_logo.svg"
+      "logos/sfh_logo.svg"
     ];
 
     function randomise(logoOverride = -1, textOverride = -1)
@@ -105,7 +122,6 @@
       85% {color: #990000;}
       100% {color: #990000;}
     }
-
     
     #specialtext {
       color: #990000;
@@ -114,10 +130,26 @@
       padding: 2em 0 0.75em 0;
       font-family: 'Aldrich', sans-serif;
       font-weight: 400;
-      animation-name: specialtextglow;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
+      animation: specialtextglow 2s infinite;
       text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    @keyframes rainbowtextAnim { /* Overrides specialtextglow because its applied to the text, not the container */
+      0% {color: #AA0000;}
+      11% {color: #E7411A;}
+      22% {color: #E78E1A;}
+      33% {color: #F8ED37;}
+      44% {color: #46D215;}
+      55% {color: #69B6DE;}
+      66% {color: #6988DE;}
+      77% {color: #7F69DE;}
+      88% {color: #C769DE;}
+      100% {color: #AA0000;}
+    }
+    
+    .rainbowtext 
+    {
+      animation: rainbowtextAnim 1s infinite;
     }
     
     .bar {
@@ -229,8 +261,7 @@
     }
     
     .smilespin:hover {
-      animation-name: smileWobble;
-      animation-duration: 1s;
+      animation: smileWobble 1s;
     }
     
     @media only screen and (max-height: 768px) {
@@ -296,10 +327,10 @@
   <header>
   <div class="logo-ct">
     <!-- Image source is overwritten by script -->
-    <img id="logo" src="sfh_logo.svg" onerror="this.src='sfh_logo_fallback.png'" alt="Satan's Fun House" title=".__(.)< (MEOW)
+    <img id="logo" src="logos/sfh_logo.svg" onerror="this.src='logos/sfh_logo_fallback.png'" alt="Satan's Fun House" title=".__(.)< (MEOW)
  \___)
 ~~~~~~~">
- <!-- Duck above is formatted for tooltip text (title attribute) -->
+ <!-- Duck above is pre-formatted for tooltip text (title attribute) -->
   </div>
   <h2 id="specialtext" title=""></h2>
   </header>
