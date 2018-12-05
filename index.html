@@ -197,10 +197,20 @@
       animation: rainbowtextAnim 1s infinite;
     }
     
+    @keyframes rainbowBarAnim {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    
     .bar {
-      height: 8px;
+      height: 4px;
       width: 100%;
-      background: linear-gradient(#bf5757 10%, #720000 40%);
+      /*Old Bar height:8px; background:linear-gradient(#bf5757 10%, #720000 40%);*/
+      background: linear-gradient(-45deg, #AA0000, #E7411A, #E78E1A, #F8ED37, #46D215, #69B6DE, #6988DE, #7F69DE, #C769DE, #AA0000);
+      background-size: 400% 400%;
+      animation: rainbowBarAnim 13s infinite;
+      animation-timing-function: ease-in-out;
     }
     
     .text-ct {
@@ -277,7 +287,7 @@
       width: 100%;
       border: 0;
       height: 1px;
-      background-image: linear-gradient(to right, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.75) 33%, rgba(238, 238, 238, 0.75) 66%, rgba(238, 238, 238, 0));
+      background: linear-gradient(to right, rgba(238, 238, 238, 0), rgba(238, 238, 238, 0.75) 33%, rgba(238, 238, 238, 0.75) 66%, rgba(238, 238, 238, 0));
     }
     
     @keyframes smileWobble { /* Thanks /r/lgbt */
@@ -308,10 +318,6 @@
       
       #specialtext {
         font-size: 1.25em;
-      }
-      
-      .bar {
-        height: 6px;
       }
     
       #welcometext {
