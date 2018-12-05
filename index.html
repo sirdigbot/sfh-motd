@@ -1,14 +1,16 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
 
-  <!-- RANDOMISER SCRIPT -->
+  <!-- RANDOMISER + BOUNCIFY SCRIPT -->
   <script>
     var textArray = [
     
-      // textArray[X][0] is the display text, textArray[x][1] is the title attribute/tooltip
+      // textArray[X][0] is the display text, textArray[x][1] is the tooltip
+      // Max tooltip line length should be ~70 chars ('\n' allowed because tooltip has 'white-space: pre')
       ["Welcome to the House of Fun",                                     "We have nothing to offer but our valueless love."],
       ["Unfortunate Host of FurryConX 2020",                              "Formerly Host of Furry Battle Royale 2019."],
       ["This random slogan idea is from Futurama, not Minecraft",         "Or maybe it's from XKCD, who knows."],
@@ -16,11 +18,11 @@
       ["Now with 10% more players--Wait never mind..",                    "I accidentally counted a bot twice."],
       ["Accepting donations in rare DogeCoins",                           "None of that common trash."],
       ["I once ate a paper aeroplane",                                    "What's the deal with airline food?"],
-      ["Thanks for Playing!",                                             "No really, we appreciate you at least a little."],
-      ["Proudly Sponsored by EA™",                                        "Legally I'm required to disclose that EA only sponsor our monthly ballet tournament."],
+      ["Thanks for Playing!",                                             "No really, we appreciate you at least a little."],     
+      ["Proudly Sponsored by EA\u2122",                                   "Legally I'm required to disclose that EA only sponsors \nour monthly ballet tournament."],
       ["Map Cycle: Hightower Rainy, Hightower Rainy and Hightower Rainy", "Then everyone leaves after 30 minutes."],
       ["Glory to the Hypnotoad",                                          "Glory to the hidden tooltip."],
-      ["Please put on your 4D Goggles",                                   "Keep your hands and shoes inside the vehicle at least 60% of the time."],
+      ["Please put on your 4D Goggles",                                   "Keep your hands and shoes inside the vehicle at least 60% of the time."], // THIS LINE IS MAX SIZE (~70 chars)
       ["Dated Memes and Drama Queens",                                    "The true final Satan's Fun House slogan begins--er, exists?"],
       ["More full-time employees than TF2 itself",                        "A whole 1 of them during peak hours."],
       ["We must save my family!",                                         "- Gary"],
@@ -32,14 +34,14 @@
       ["fuck you kevin stop showing evryone my fuckin deviantart",        "- blood_skull_boi84"],
       ["we are very sorry in general",                                    "truly, mostly."],
       ["Now apple flavoured",                                             "To nobody's benefit, soon to be replaced with lime."],
-      ["Featuring interactivity",                                         "If you hold your monitor up at the right angle you can even feel your arms getting sore."],
-      ["We probably have some lime skittles somewhere around here",       "Get it? Because nobody likes the apple ones? im sorry im not a writer."],
-      ["Voted 5th Best Fun House Server in Venezuela",                    "Honestly, I expected less fanfare but the Venezuelans know how to celebrate."],
+      ["Featuring interactivity",                                         "If you hold your monitor up at the right angle \nyou can even feel your arms getting sore."],
+      ["We probably have some lime skittles somewhere around here",       "Get it? Because nobody likes the apple ones? \nim sorry im not a writer."],
+      ["Voted 5th Best Fun House Server in Venezuela",                    "Honestly, I expected less fanfare but the \nVenezuelans know how to celebrate."],
       ["Sorry, we're open",                                               "Business Hours: Yes."],
       ["More bugs than my childhood dinners",                             "Such is the life of an anteater.."],
       ["Bathrooms are closed for routine maintenance",                    "We're sorry for the incontinence."],
       ["Ignore the mosquitoes",                                           "They just do that sometimes."],
-      ["This is the Apples' Smiley ° ͜ °",                                "Copyright (C) Nintendo 1845-1847."],
+      ["This is the Apples' Smiley \u00B0 \u035C \u00B0",                 "Copyright \u00A9 Nintendo 1823-1827."],
       ["yo why my toes smell like feet",                                  "what"],
       ["Now with 25 fewer annual deaths",                                 "When compared with other similar brands."],
       ["No Fun Allowed",                                                  "Your punishment will be joy."],
@@ -55,7 +57,7 @@
       ["If you're here for the massage parlor they're next door",         "The kid-friendly one is down the street next to the crack alley."],
       ["Fake Armor Trimming Grievance Counselling",                       "Just trade us the $10k first."],
       ["87% Organic*",                                                    "As long as bullshit counts as organic."],
-      ["Due to cutbacks, the play has been cancelled",                    "We'll be returning next year with our rendition of \"Lion King 3: Haha, I'm not really dead simba you idiot\""],
+      ["Due to cutbacks, the play has been cancelled",                    "We'll be returning next year with our rendition of \n\"Lion King 3: Haha, I'm not really dead simba you idiot\""],
       ["15% taller than last year!",                                      "Wonder where we got the inches."],
       ["Speed Dating Classes: 8:00pm-8:01pm",                             "Latecomers will be denied entry, and then invited to help clean up."],
       ["\"LASERS. CAUTION. LASERS. CAUTION. LASERS.\" What could it mean?", "When's episode 40 coming out, Ross?"],
@@ -71,12 +73,12 @@
       var logoIdx = (logoOverride > -1 ? logoOverride : Math.floor(Math.random()*logoArray.length)); // 0 to length-1
       var textIdx = (textOverride > -1 ? textOverride : Math.floor(Math.random()*textArray.length));
       
-      console.log("LogoIdx: " + logoIdx + " (" + logoArray[logoIdx] + ")");
-      console.log("TextIdx: " + textIdx + " (" + textArray[textIdx][0] + " | " + textArray[textIdx][1] + ")");
+      console.log("Logo(" + logoIdx + "): " + logoArray[logoIdx]);
+      console.log("Text(" + textIdx + "): " + textArray[textIdx][0] + " | " + textArray[textIdx][1]);
       
-      document.getElementById("logo").src               = logoArray[logoIdx];
-      document.getElementById("specialtext").innerHTML  = textArray[textIdx][0];
-      document.getElementById("specialtext").title      = textArray[textIdx][1]; // tooltip attribute
+      document.getElementById("logo").src                 = logoArray[logoIdx];
+      document.getElementById("specialtext").innerHTML    = textArray[textIdx][0];
+      document.getElementById("specialtooltip").innerHTML = textArray[textIdx][1];
     }
     
     // Add span tag with increasingly delayed bounceAnim to each character in string
@@ -137,15 +139,43 @@
       100% {color: #990000;}
     }
     
+    .specialtext-ct {
+      position: relative;
+      display: inline-block;
+      padding: 2em 0 0.75em 0;
+    }
+    
     #specialtext {
       color: #990000;
       font-size: 1.5em;
       margin: 0;
-      padding: 2em 0 0.75em 0;
       font-family: 'Aldrich', sans-serif;
       font-weight: 400;
       animation: specialtextglow 2s infinite;
       text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    #specialtooltip {
+      opacity: 0;
+      transition: opacity 0.2s ease-in 0.4s;
+      font-size: 1em;
+      border-radius: 6px;
+      padding: 5px;
+      min-width: 10em;
+      white-space: pre; /* Keep on 1 line, preserve newlines in text */
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #EEEEEE;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+      /* Tooltip Positioning, needs pos:relative container */
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    .specialtext-ct:hover #specialtooltip {
+      opacity: 1;
     }
     
     @keyframes rainbowtextAnim { /* Overrides specialtextglow because its applied to the text, not the container */
@@ -270,7 +300,7 @@
       animation: smileWobble 1s;
     }
     
-    @media only screen and (max-height: 768px) {
+    @media only screen and (max-height: 768px), screen and (max-width: 768px) {
       #logo {
         height: 150px;
       }
@@ -283,7 +313,7 @@
         height: 6px;
       }
     
-      .welcometext {
+      #welcometext {
         margin: 0.5em auto;
         font-size: 2em;
       }
@@ -302,7 +332,7 @@
       }
     }
     
-    @media only screen and (max-height: 540px) {
+    @media only screen and (max-height: 540px), screen and (max-width: 540px) {
       #logo {
         height: 100px;
       }
@@ -311,7 +341,7 @@
         font-size: 1em;
       }
     
-      .welcometext {
+      #welcometext {
         font-size: 1.5em;
       }
       
@@ -333,12 +363,12 @@
   <header>
   <div class="logo-ct">
     <!-- Image source is overwritten by script -->
-    <img id="logo" src="logos/sfh_logo.svg" onerror="this.src='logos/sfh_logo_fallback.png'" alt="Satan's Fun House" title=".__(.)< (MEOW)
- \___)
-~~~~~~~">
- <!-- Duck above is pre-formatted for tooltip text (title attribute) -->
+    <img id="logo" src="logos/sfh_logo.svg" onerror="this.src='logos/sfh_logo_fallback.png'" alt="Satan's Fun House">
   </div>
-  <h2 id="specialtext" title=""></h2>
+  <div class="specialtext-ct">
+    <span id="specialtext"></span>
+    <span id="specialtooltip"></span>
+  </div>
   </header>
   <div class="bar">
   </div>
