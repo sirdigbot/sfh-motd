@@ -324,8 +324,14 @@
       color: #EEEEEE;
     }
 
-    .cmdlist {
+    .cmdcontainer {
       margin: auto;
+    }
+    
+    .cmdlist {
+      display: inline-block;
+      height: 100%;
+      margin: 0 2em;
       text-align: left;
     }
     
@@ -455,15 +461,22 @@
   </div>
   <div class="text-ct">
     <h1 id="welcometext">Welcome to Satan's Fun House!</h1>
-    <p class="maintext">We have multiple gamemodes:<br/>KOTH, Control Points, Payload, Payload Race, Dodgeball, Deathrun and Surf.<br/>Use Nominate and RTV to change maps.</p>
-    <table class="cmdlist">
-      <th colspan="2"><h2 class="mainheader">Some Useful Commands<hr class="fadeline"/></h2></th>
-      <tr><td>/rules</td><td>- See server rules</td></tr>
-      <tr><td>/help</td><td>- Commands and info about the server</td></tr>
-      <tr><td>/votegrapple</td><td>- Vote to toggle Grappling Hooks</td></tr>
-      <tr><td>/votebhoplimit</td><td>- Vote to toggle the BHop Speed Limit</td></tr>
-      <tr><td>/namecolour</td><td>- Make your name look as pretty as you <span class="smilespin">:D</span></td></tr>
-    </table>
+    <p class="maintext">We have multiple gamemodes:<br/><span style="color:#E7411A;">KOTH</span>, <span style="color:#E78E1A;">Control Points</span>, <span style="color:#F8ED37;">Payload</span>, <span style="color:#46D215;">Payload Race</span>, <span style="color:#69B6DE;">Dodgeball</span>, <span style="color:#6988DE;">Deathrun</span>, <span style="color:#7F69DE;">Surf</span> and <span style="color:#C769DE;">TF2x10</span>!<br/>Use <span style="color:#ADE55C">Nominate</span> and <span style="color:#ADE55C">RTV</span> to change maps.</p>
+    <div class="cmdcontainer">
+      <table class="cmdlist">
+        <th colspan="2"><h2 class="mainheader">Commands<hr class="fadeline"/></h2></th>
+        <tr><td>/nominate</td><td>- Nominate a map for Rock The Vote</td></tr>
+        <tr><td>/rtv</td><td>- Rock The Vote to Change Maps</td></tr>
+        <tr><td>/rules</td><td>- See server rules</td></tr>
+        <tr><td>/help</td><td>- Commands and info about the server</td></tr>
+        <tr><td>/namecolour</td><td>- Make your name look as pretty as you <span class="smilespin">:D</span></td></tr>
+      <table class="cmdlist">
+        <th colspan="2"><h2 class="mainheader">Votes<hr class="fadeline"/></h2></th>
+        <tr><td>/votetf2x10</td><td>- Start a Vote to toggle TF2x10</td></tr>
+        <tr><td>/votegrapple</td><td>- Start a Vote to toggle Grappling Hooks</td></tr>
+        <tr><td>/votebhoplimit</td><td>- Start a Vote to toggle the BHop Speed Limit</td></tr>
+      </table>
+    </div>
   </div>
 </body>
 </html>
